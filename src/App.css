@@ -1,0 +1,53 @@
+
+* {
+  background-color: rgb(222, 201, 253)
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Manrope', sans-serif;
+}
+
+.error {
+  border: red 1px solid;
+}
+
+.error-message {
+  color: red;
+}
+
+.active-filter {
+  background-color: rgb(255, 255, 255);
+}
+
+button {
+  font-family: 'Manrope', sans-serif;
+  margin: 2px;
+  background-color: rgb(179, 124, 237);
+  border: 1px solid rgb(141, 60, 227);
+  border-radius: 4px;
+  max-width: 100%;
+}
+
+input {
+  border: 1px solid rgb(141, 60, 227);
+  outline: none;
+  font-family: 'Manrope', sans-serif;
+}
+
+.taskline {
+  padding-left: 0px;
+  list-style-type: none;
+}
+
+.header {
+  text-align: center;
+}
+
+.tasktitle {
+  padding-right: 5px;
+}
+
+ 
