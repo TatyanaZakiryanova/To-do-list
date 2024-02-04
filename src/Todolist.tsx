@@ -1,6 +1,7 @@
 import { FilterValuesType } from "./App";
 import { ChangeEvent, KeyboardEvent, useState } from "react";
 import { AddItemForm } from "./AddItemForm";
+import { EditableSpan } from "./EditableSpan";
 
 export type TaskType = {
   id: string;
@@ -50,7 +51,7 @@ export function Todolist(props: PropsType) {
                 onChange={onChangeHandler}
                 checked={t.isDone}
               />
-              <span className="tasktitle">{t.title}</span>
+              <EditableSpan title={t.title} />
               <button onClick={onClickHandler}>
                 X
               </button>

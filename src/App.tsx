@@ -12,19 +12,23 @@ type TodolistType = {
   filter: FilterValuesType;
 };
 
+type TasksStateType = {
+  [key: string]: Array<TaskType>
+}
+
 function App() {
 
   let todolistId1 = v1();
   let todolistId2 = v1();
 
   let [todolists, setTodolists] = useState<Array<TodolistType>>([
-    { id: todolistId1, title: "TO-DO LIST", filter: "all" },
-    { id: todolistId2, title: "WHAT TO LEARN", filter: "all" },
+    { id: todolistId1, title: "WHAT TO DO", filter: "all" },
+    { id: todolistId2, title: "WHAT TO BUY", filter: "all" },
   ]);
 
-  let [tasksObj, setTasks] = useState({
-    [todolistId1]: [{ id: v1(), title: "HTML&CSS", isDone: false }],
-    [todolistId2]: [{ id: v1(), title: "HELLO", isDone: false }],
+  let [tasksObj, setTasks] = useState<TasksStateType>({
+    [todolistId1]: [{ id: v1(), title: "Create to-do list", isDone: false }],
+    [todolistId2]: [{ id: v1(), title: "Book about programming", isDone: false }],
   });
 
   function changeFilter(value: FilterValuesType, todolistId: string) {
