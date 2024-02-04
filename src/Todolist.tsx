@@ -16,9 +16,11 @@ type PropsType = {
   changeFilter: (value: FilterValuesType, todolistId: string) => void;
   addTask: (title: string, todolistId: string) => void;
   changeTaskStatus: (taskId: string, isDone: boolean, todolistId: string) => void;
+  changeTaskTitle: (taskId: string, newTitle: string, todolistId: string) => void;
   filter: FilterValuesType;
   id: string,
   removeTodolist: (todolistId: string) => void;
+  changeTodolistTitle: (id: string, newTitle: string) => void;
 };
 
 export function Todolist(props: PropsType) {
@@ -34,24 +36,33 @@ export function Todolist(props: PropsType) {
     props.addTask(title, props.id);
   }
 
+  const changeTodolistTitle = (newTitle: string) => {
+    props.changeTodolistTitle(props.id, newTitle);
+  }
+
   return (
     <div>
-      <h3 className="header">{props.title} <button onClick={removeTodolist}>X</button></h3>
+      <h3 className="header"> <EditableSpan title={props.title} onChange={changeTodolistTitle} />
+      <button onClick={removeTodolist}>X</button></h3>
      <AddItemForm addItem={addTask} />
       <ul className="taskline">
         {props.tasks.map((t) => {
           const onClickHandler = () => props.removeTask(t.id, props.id);
-          const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-          props.changeTaskStatus(t.id, e.currentTarget.checked, props.id);
+          const onChangeStatusHandler = (e: ChangeEvent<HTMLInputElement>) => {
+          let newIsDoneValue = e.currentTarget.checked;
+          props.changeTaskStatus(t.id, newIsDoneValue, props.id);
           };
+          const onChangeTitleHandler = (newValue: string) => {
+            props.changeTaskTitle(t.id, newValue, props.id);
+            };
           return (
             <li key={t.id}>
               <input
                 type="checkbox"
-                onChange={onChangeHandler}
+                onChange={onChangeStatusHandler}
                 checked={t.isDone}
               />
-              <EditableSpan title={t.title} />
+              <EditableSpan title={t.title} onChange={onChangeTitleHandler} />
               <button onClick={onClickHandler}>
                 X
               </button>
