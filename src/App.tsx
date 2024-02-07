@@ -3,10 +3,11 @@ import "./App.css";
 import { TaskType, Todolist } from "./Todolist";
 import { v1 } from "uuid";
 import { AddItemForm } from "./AddItemForm";
+import { Card } from "@mui/material";
 
 export type FilterValuesType = "all" | "completed" | "active";
 
-type TodolistType = {
+export type TodolistType = {
   id: string;
   title: string;
   filter: FilterValuesType;
@@ -99,7 +100,9 @@ function changeTodolistTitle(id: string, newTitle: string) {
 
   return (
     <div className="App">
+      <Card variant="outlined" className="card-style">
       <AddItemForm addItem={addTodolist} />
+      </Card>
       {todolists.map((tl) => {
         let tasksForTodoList = tasksObj[tl.id];
         if (tl.filter === "completed") {

@@ -2,7 +2,7 @@ import { FilterValuesType } from "./App";
 import { ChangeEvent, KeyboardEvent, useState } from "react";
 import { AddItemForm } from "./AddItemForm";
 import { EditableSpan } from "./EditableSpan";
-import { Button, Checkbox, IconButton } from "@mui/material";
+import { Button, Card, Checkbox, IconButton } from "@mui/material";
 import { Delete } from "@mui/icons-material";
 
 export type TaskType = {
@@ -44,6 +44,7 @@ export function Todolist(props: PropsType) {
 
   return (
     <div>
+      <Card variant="outlined" className="card-style">
       <h3 className="header"> <EditableSpan title={props.title} onChange={changeTodolistTitle} />
       <IconButton aria-label="delete" onClick={removeTodolist}>
       <Delete />
@@ -82,6 +83,7 @@ export function Todolist(props: PropsType) {
         <Button variant={props.filter === "completed" ? "contained" : "text"}
         onClick={onCompletedClickHandler}>Completed</Button>
       </div>
+      </Card>
     </div>
   );
 }
