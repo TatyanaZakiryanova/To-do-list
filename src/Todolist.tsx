@@ -1,8 +1,8 @@
 import { FilterValuesType } from "./App";
-import { ChangeEvent, KeyboardEvent, useState } from "react";
+import { ChangeEvent } from "react";
 import { AddItemForm } from "./AddItemForm";
 import { EditableSpan } from "./EditableSpan";
-import { Button, Card, Checkbox, IconButton } from "@mui/material";
+import { Button, Card, Checkbox, Grid, IconButton } from "@mui/material";
 import { Delete } from "@mui/icons-material";
 
 export type TaskType = {
@@ -76,11 +76,11 @@ export function Todolist(props: PropsType) {
         })}
       </ul>
       <div>
-        <Button variant={props.filter === "all" ? "contained" : "text"} 
+        <Button variant={props.filter === "all" ? "outlined" : "text"} 
         onClick={onAllClickHandler}>All</Button>
-        <Button variant={props.filter === "active" ? "contained" : "text"}
+        <Button variant={props.filter === "active" ? "outlined" : "text"}
         onClick={onActiveClickHandler}>Active</Button>
-        <Button variant={props.filter === "completed" ? "contained" : "text"}
+        <Button variant={props.filter === "completed" ? "outlined" : "text"}
         onClick={onCompletedClickHandler}>Completed</Button>
       </div>
       </Card>

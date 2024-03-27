@@ -27,7 +27,7 @@ export function AddItemForm(props: AddItemFormPropsType) {
   };
   return (
     <div>
-      <TextField id="standard-basic" label="Your value..." variant="standard"
+      <TextField id="standard-basic" label="Enter your value..." variant="standard"
         value={title}
         onChange={onChangeHandler}
         onKeyPress={onKeyPressHandler}
