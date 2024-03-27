@@ -2,7 +2,7 @@ import { FilterValuesType } from "./App";
 import { ChangeEvent } from "react";
 import { AddItemForm } from "./AddItemForm";
 import { EditableSpan } from "./EditableSpan";
-import { Button, Card, Checkbox, Grid, IconButton } from "@mui/material";
+import { Button, Card, Checkbox, IconButton } from "@mui/material";
 import { Delete } from "@mui/icons-material";
 
 export type TaskType = {
@@ -51,7 +51,7 @@ export function Todolist(props: PropsType) {
       </IconButton>
       </h3>
      <AddItemForm addItem={addTask} />
-      <ul className="taskline">
+      <ul>
         {props.tasks.map((t) => {
           const onClickHandler = () => props.removeTask(t.id, props.id);
           const onChangeStatusHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -62,7 +62,7 @@ export function Todolist(props: PropsType) {
             props.changeTaskTitle(t.id, newValue, props.id);
             };
           return (
-            <li key={t.id}>
+            <li key={t.id} className="taskline">
               <Checkbox
                 onChange={onChangeStatusHandler}
                 checked={t.isDone}

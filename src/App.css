@@ -34,7 +34,6 @@ body {
 }
 
 .MuiCard-root {
-    width: 250px;
     margin: 20px;
     background-color: white;
     box-shadow: 0px 4px 10px rgba(94, 93, 93, 0.25);
